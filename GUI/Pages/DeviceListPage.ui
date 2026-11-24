@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DeviceListPage</class>
+ <widget class="QWidget" name="DeviceListPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>483</width>
+    <height>516</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Allgemein */
+QFrame[GuiRole=PageTitelFrame] { background: rgb(210, 210, 210); border-radius: 6px;	padding: 6px; }
+QFrame[GuiRole=PageTitelFrame] QLabel {  font: bold 10pt; }
+QFrame[GuiRole=GroupBox] { background: rgb(230, 230, 230); }
+
+QPushButton[GuiRole=ToolBarButton] { border: 1px solid transparent; border-radius: 3px; padding: 3px; qproperty-iconSize: 24px; }
+QPushButton[GuiRole=ToolBarButton]:hover { background: rgb(220, 220, 220); border-color: rgb(220, 220, 220); }
+QPushButton[GuiRole=ToolBarButton]:pressed { background: rgb(220, 220, 220); border-color: rgb(110, 110, 110); }
+QPushButton[GuiRole=ToolBarButton]:checked { background: rgb(220, 220, 220); border-color: rgb(110, 110, 110); }
+
+/* Spezifisch */
+QTableView#deviceView { border: 1px solid transparent; }
+QTableView#deviceView QHeaderView::section:horizontal
+{
+	background: rgb(230,230, 230);
+	color: rgb(12, 12, 12);
+	font: bold;
+	border: 1px solid transparent;
+    padding: 4px 4px 4px 4px;
+}
+
+QTableView#deviceView::item:selected { background: rgb(200, 200, 200); color: rgb(25, 25, 25); }
+
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="spacing">
+    <number>10</number>
+   </property>
+   <property name="leftMargin">
+    <number>5</number>
+   </property>
+   <property name="topMargin">
+    <number>5</number>
+   </property>
+   <property name="rightMargin">
+    <number>5</number>
+   </property>
+   <property name="bottomMargin">
+    <number>5</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="titleFrame">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="GuiRole" stdset="0">
+      <string notr="true">PageTitelFrame</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_27">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="titelText">
+        <property name="text">
+         <string>Local Cy4NET devices</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="titelSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="toolBarFrame">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_28" stretch="0,1,0,1,0,0,1,0,2,0">
+      <property name="spacing">
+       <number>5</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="refreshAllButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>Refresh device list</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <disabledoff>:/Symbols/RefreshDeviceList_P.png</disabledoff>
+          <activeon>:/Symbols/RefreshDeviceList_A.png</activeon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="GuiRole" stdset="0">
+         <string notr="true">ToolBarButton</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="discoverButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>Discover devices</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <disabledoff>:/Symbols/Discover_P.png</disabledoff>
+          <activeon>:/Symbols/Discover_A.png</activeon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="GuiRole" stdset="0">
+         <string notr="true">ToolBarButton</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="addButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>Add new device</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <disabledoff>:/Symbols/Plus_P.png</disabledoff>
+          <activeon>:/Symbols/Plus_A.png</activeon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="GuiRole" stdset="0">
+         <string notr="true">ToolBarButton</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="removeButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>Remove devices</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <disabledoff>:/Symbols/Trashcan_P.png</disabledoff>
+          <activeon>:/Symbols/Trashcan_A.png</activeon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="GuiRole" stdset="0">
+         <string notr="true">ToolBarButton</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="uploadFirmwareButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>Upload firmware</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <disabledoff>:/Symbols/UploadFirmware_P.png</disabledoff>
+          <activeon>:/Symbols/UploadFirmware_A.png</activeon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="GuiRole" stdset="0">
+         <string notr="true">ToolBarButton</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="toolBarSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>10</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="moreButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip">
+         <string>Menu</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <disabledoff>:/Symbols/More_P.png</disabledoff>
+          <activeon>:/Symbols/More_A.png</activeon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="GuiRole" stdset="0">
+         <string notr="true">ToolBarButton</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="bodyLayout">
+     <item>
+      <widget class="QTableView" name="deviceView">
+       <property name="contextMenuPolicy">
+        <enum>Qt::ContextMenuPolicy::CustomContextMenu</enum>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+       </property>
+       <property name="cornerButtonEnabled">
+        <bool>false</bool>
+       </property>
+       <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderCascadingSectionResizes">
+        <bool>true</bool>
+       </attribute>
+      </widget>
+     </item>
+     <item>
+      <widget class="ChangeAddressView" name="changeAddressView" native="true"/>
+     </item>
+     <item>
+      <widget class="AddDeviceView" name="addDeviceView" native="true"/>
+     </item>
+     <item>
+      <widget class="DiscoverDevicesView" name="discoverDevicesView" native="true"/>
+     </item>
+    </layout>
+   </item>
+  </layout>
+  <action name="enterPgmLdrMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/PgmLdr_P.png</disabledoff>
+     <activeon>:/Symbols/PgmLdr_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Enter program loader</string>
+   </property>
+   <property name="toolTip">
+    <string>Entering program loader of device</string>
+   </property>
+  </action>
+  <action name="markAsNewMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/MarkNew_P.png</disabledoff>
+     <activeon>:/Symbols/MarkNew_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Mark as new</string>
+   </property>
+   <property name="toolTip">
+    <string>Mark device as new</string>
+   </property>
+  </action>
+  <action name="changeAddressMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/ChangeAddress_P.png</disabledoff>
+     <activeon>:/Symbols/ChangeAddress_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Change address</string>
+   </property>
+   <property name="toolTip">
+    <string>Change address of device</string>
+   </property>
+  </action>
+  <action name="importDeviceListMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/ImportDeviceList_P.png</disabledoff>
+     <activeon>:/Symbols/ImportDeviceList_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Import device list</string>
+   </property>
+   <property name="toolTip">
+    <string>Import device list</string>
+   </property>
+  </action>
+  <action name="exportDeviceListMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/ExportDeviceList_P.png</disabledoff>
+     <activeon>:/Symbols/ExportDeviceList_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Export device list</string>
+   </property>
+   <property name="toolTip">
+    <string>Export device list</string>
+   </property>
+  </action>
+  <action name="restartMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/Restart_P.png</disabledoff>
+     <activeon>:/Symbols/Restart_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Restart</string>
+   </property>
+   <property name="toolTip">
+    <string>Restart device</string>
+   </property>
+  </action>
+  <action name="refreshMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/RefreshDevice_P.png</disabledoff>
+     <activeon>:/Symbols/RefreshDevice_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Refresh</string>
+   </property>
+   <property name="toolTip">
+    <string>Refresh device</string>
+   </property>
+  </action>
+  <action name="addMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/Plus_P.png</disabledoff>
+     <activeon>:/Symbols/Plus_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Add</string>
+   </property>
+   <property name="toolTip">
+    <string>Add new device to list</string>
+   </property>
+  </action>
+  <action name="removeMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/Trashcan_P.png</disabledoff>
+     <activeon>:/Symbols/Trashcan_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Remove</string>
+   </property>
+   <property name="toolTip">
+    <string>Remove devices from list</string>
+   </property>
+  </action>
+  <action name="uploadFirmwareMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/UploadFirmware_P.png</disabledoff>
+     <activeon>:/Symbols/UploadFirmware_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Upload firmware</string>
+   </property>
+   <property name="toolTip">
+    <string>Upload firmware</string>
+   </property>
+  </action>
+  <action name="customAccessMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/CustomAccess_P.png</disabledoff>
+     <activeon>:/Symbols/CustomAccess_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Send custom message</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>DiscoverDevicesView</class>
+   <extends>QWidget</extends>
+   <header>DiscoverDevicesView.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>AddDeviceView</class>
+   <extends>QWidget</extends>
+   <header>AddDeviceView.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ChangeAddressView</class>
+   <extends>QWidget</extends>
+   <header>ChangeAddressView.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

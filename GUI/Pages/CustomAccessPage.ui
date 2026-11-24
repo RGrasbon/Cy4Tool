@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CustomAccessPage</class>
+ <widget class="QWidget" name="CustomAccessPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>576</width>
+    <height>509</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Allgemein */
+QFrame[GuiRole=PageTitelFrame] { background: rgb(210, 210, 210); border-radius: 6px;	padding: 6px; }
+QFrame[GuiRole=PageTitelFrame] QLabel {  font: bold 10pt; }
+QFrame[GuiRole=GroupBox] { background: rgb(230, 230, 230); }
+
+QPushButton[GuiRole=ToolBarButton] { border: 1px solid transparent; border-radius: 3px; padding: 3px; qproperty-iconSize: 24px; }
+QPushButton[GuiRole=ToolBarButton]:hover { background: rgb(220, 220, 220); border-color: rgb(220, 220, 220); }
+QPushButton[GuiRole=ToolBarButton]:pressed { background: rgb(220, 220, 220); border-color: rgb(110, 110, 110); }
+QPushButton[GuiRole=ToolBarButton]:checked { background: rgb(220, 220, 220); border-color: rgb(110, 110, 110); }
+
+/* Spezifisch */
+QPushButton#readButton { background: rgb(220, 255, 220); border: 1px solid rgb(120, 160, 120); border-radius: 3px; padding: 3px; qproperty-iconSize: 32px; }
+QPushButton#readButton:disabled { background: rgba(240, 255, 240, 50); }
+QPushButton#readButton:hover { background: rgb(240, 255, 240); border-color: rgb(140, 160, 140); }
+QPushButton#readButton:pressed { background: rgb(250, 255, 250); border-color: rgb(180, 160, 160); }
+
+QPushButton#writeButton { background: rgb(255, 220, 220); border: 1px solid rgb(160, 120, 120); border-radius: 3px; padding: 3px; qproperty-iconSize: 32px; }
+QPushButton#writeButton:disabled { background: rgba(255, 220, 220, 50); }
+QPushButton#writeButton:hover { background: rgb(255, 240, 240); border-color: rgb(160, 140, 140); }
+QPushButton#writeButton:pressed { background: rgb(255, 250, 250); border-color: rgb(180, 160, 160); }
+
+QHexEdit#hexEdit { border: 0px;}
+QLineEdit#locationEdit { min-width: 5em;}
+QLineEdit#countEdit { min-width: 3em;}
+
+QPushButton#absoluteLocationButton { border: 1px solid transparent; min-width: 60px; }
+QPushButton#absoluteLocationButton:checked { background: rgb(200, 200, 200); }
+QPushButton#relativeLocationButton { border: 1px solid transparent; min-width: 60px; }
+QPushButton#relativeLocationButton:checked { background: rgb(200, 200, 200); }
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0,1,0">
+   <property name="spacing">
+    <number>10</number>
+   </property>
+   <property name="leftMargin">
+    <number>5</number>
+   </property>
+   <property name="topMargin">
+    <number>5</number>
+   </property>
+   <property name="rightMargin">
+    <number>5</number>
+   </property>
+   <property name="bottomMargin">
+    <number>5</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="titleFrame">
+     <property name="GuiRole" stdset="0">
+      <string notr="true">PageTitelFrame</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_27">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="goBackButton">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="toolTip">
+         <string>Go back to previous page</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <disabledoff>:/Symbols/BackArrow_P.png</disabledoff>
+          <activeon>:/Symbols/BackArrow_A.png</activeon>
+         </iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="GuiRole" stdset="0">
+         <string notr="true">ToolBarButton</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="titleText">
+        <property name="text">
+         <string>Custom access</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="titleSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="GuiRole" stdset="0">
+      <string notr="true">GroupBox</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_7">
+      <property name="topMargin">
+       <number>9</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,1,0,0,0,2,0">
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <spacer name="horizontalSpacer_9">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="4">
+           <widget class="QLabel" name="label1_2">
+            <property name="font">
+             <font>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Location</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="6">
+           <widget class="QLabel" name="label1">
+            <property name="font">
+             <font>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Count</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="5">
+           <widget class="QLabel" name="label_2">
+            <property name="font">
+             <font>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string notr="true">:</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3" rowspan="2">
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="addressEdit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>Enter address for new device</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">max-width: 4em;</string>
+            </property>
+            <property name="inputMask">
+             <string notr="true">000.000;_</string>
+            </property>
+            <property name="text">
+             <string notr="true">.</string>
+            </property>
+            <property name="maxLength">
+             <number>7</number>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="cursorPosition">
+             <number>7</number>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="spacing">
+             <number>2</number>
+            </property>
+            <item>
+             <widget class="QLineEdit" name="locationEdit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="toolTip">
+               <string>Enter message location</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">max-width: 4em;</string>
+              </property>
+              <property name="text">
+               <string notr="true"/>
+              </property>
+              <property name="maxLength">
+               <number>6</number>
+              </property>
+              <property name="frame">
+               <bool>false</bool>
+              </property>
+              <property name="cursorPosition">
+               <number>0</number>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label1_5">
+              <property name="font">
+               <font>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string notr="true">h</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="6">
+           <widget class="QLineEdit" name="countEdit">
+            <property name="toolTip">
+             <string>Enter number of payload bytes</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">max-width: 4em;</string>
+            </property>
+            <property name="text">
+             <string notr="true"/>
+            </property>
+            <property name="maxLength">
+             <number>4</number>
+            </property>
+            <property name="frame">
+             <bool>false</bool>
+            </property>
+            <property name="cursorPosition">
+             <number>0</number>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="clearAllButton">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>Clear all input fields</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <disabledoff>:/Symbols/ClearInput_P.png</disabledoff>
+              <activeon>:/Symbols/ClearInput_A.png</activeon>
+             </iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="GuiRole" stdset="0">
+             <string notr="true">ToolBarButton</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" rowspan="2">
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label1_3">
+            <property name="font">
+             <font>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Address</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <widget class="QPushButton" name="readButton">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="toolTip">
+               <string>Transfer read message</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <disabledoff>:/Symbols/ReadAccess_P.png</disabledoff>
+                <activeon>:/Symbols/ReadAccess_A.png</activeon>
+               </iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="readLabel">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Read</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QPushButton" name="writeButton">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="toolTip">
+               <string>Transfer write message</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <disabledoff>:/Symbols/WriteAccess_P.png</disabledoff>
+                <activeon>:/Symbols/WriteAccess_A.png</activeon>
+               </iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>32</width>
+                <height>32</height>
+               </size>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="writeLabel">
+            <property name="font">
+             <font>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Write</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignmentFlag::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Orientation::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>10</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QPushButton" name="moreButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>Menu</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <disabledoff>:/Symbols/More_P.png</disabledoff>
+              <activeon>:/Symbols/More_A.png</activeon>
+             </iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>24</width>
+              <height>24</height>
+             </size>
+            </property>
+            <property name="GuiRole" stdset="0">
+             <string notr="true">ToolBarButton</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QStackedWidget" name="accessResultStack">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <widget class="QWidget" name="page_0_Blank">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_26">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="page_1_Ok">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_28">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_30">
+           <property name="font">
+            <font>
+             <italic>true</italic>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: rgb(160, 255, 160); color: rgb(97, 154, 97);</string>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Shape::NoFrame</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Shadow::Plain</enum>
+           </property>
+           <property name="text">
+            <string>Ok</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="page_2_Failed">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_33">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_31">
+           <property name="font">
+            <font>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background: rgb(255,120,120); color: rgb(158, 74, 74);</string>
+           </property>
+           <property name="text">
+            <string>Failed</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QHexEdit" name="hexEdit" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <property name="spacing">
+      <number>20</number>
+     </property>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="absoluteLocationButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>abs</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="relativeLocationButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>rel</string>
+         </property>
+         <property name="checkable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="currentLocationText">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <italic>false</italic>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string notr="true">---</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+  <action name="copyToClipboardMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/CopyToClipboard_P.png</disabledoff>
+     <activeon>:/Symbols/CopyToClipboard_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Copy data hex dump to clipboard</string>
+   </property>
+   <property name="toolTip">
+    <string>Copy data hex dump to clipboard</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="relativeLocationMenuItem">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Relative location</string>
+   </property>
+   <property name="toolTip">
+    <string>show location relative to service base</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="absoluteLocationMenuItem">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Absolute location</string>
+   </property>
+   <property name="toolTip">
+    <string>show location absolute to service base</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="overwriteWithFFhMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/Rubber_P.png</disabledoff>
+     <activeon>:/Symbols/Rubber_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Overwrite add with FFh</string>
+   </property>
+   <property name="toolTip">
+    <string>Overwrite all data with FFh</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="overwriteWith00hMenuItem">
+   <property name="icon">
+    <iconset>
+     <disabledoff>:/Symbols/Rubber_P.png</disabledoff>
+     <activeon>:/Symbols/Rubber_A.png</activeon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Overwrite all with 0</string>
+   </property>
+   <property name="toolTip">
+    <string>Overwrite all data with 0</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QHexEdit</class>
+   <extends>QWidget</extends>
+   <header>QHexEdit.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>countEdit</tabstop>
+  <tabstop>moreButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
