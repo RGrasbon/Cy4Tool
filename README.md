@@ -44,7 +44,7 @@ Um Cy4Tool nutzen zu können, muss dein System folgende Anforderungen erfüllen:
 
 ## Installation
 
-Für Windows steht eine ausführbare Installationsdatei zur Verfügung: 
+Für Windows steht eine ausführbare Installationsdatei zur Verfügung: [Releases](../../releases)
 > **Hinweis zur Installation:** Da die Datei nicht digital signiert ist, erscheint unter Windows eventuell eine SmartScreen-Warnung. Klicke dort einfach auf **"Weitere Informationen"** und anschließend auf **"Trotzdem ausführen"**.
 
 
