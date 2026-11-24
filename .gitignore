@@ -1,0 +1,42 @@
+# ==========================================
+# CMake
+# ==========================================
+build/
+Build/
+out/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+Testing/
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+
+# ==========================================
+# IDEs
+# ==========================================
+# Visual Studio Code
+.vscode/
+
+# Qt Creator
+*.pro.user
+*.qbs.user
+CMakeLists.txt.user*
+.qtcreator/
+
+# ==========================================
+# OS
+# ==========================================
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+# Linux
+*~
