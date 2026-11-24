@@ -1,0 +1,44 @@
+{	"mandatory-services":
+	[
+		{   "service":
+			{   "name"    : "CallTypePlate",
+				"brief"   : { "en": "Reading board and application specific information (typeplate):<br>[0,1,2]: Application type number: Axxxxx, 'x' in BCD<br>[3]: Application version number xx as major.minor, 'x' in BCD<br>[4,5,6]: Board type number: Bxxxxx, 'x' in BCD<br>(mandatory service)",
+					          "de": "Liest board- und applikationsspezifische Informationen (Typenplakette):<br>[0,1,2]: Applikationstypennummer: Axxxxx, 'x' in BCD<br>[3]: Applikationsversionsnummer xx as major.minor, 'x' in BCD<br>[4,5,6]: Boardtypennummer: Bxxxxx, 'x' in BCD<br>(Pflichtdienst)"
+						    },
+				"location": "FFFFF0h",
+				"size"    : 7,
+				"access"  : "read-only"
+			}
+		},
+		{   "service":
+			{   "name"    : "EnterApplication",
+				"brief"   : { "en": "Starts (or restarts) the application.<br>[0]: Trigger value 94 ( = 0x5E, '^')<br>(mandatory service)",
+					          "de": "Startet die Application (neu).<br>[0]: Auslösewert 94 ( = 0x5E, '^')<br>(Pflichtdienst)"
+						    },
+				"location": "FFFFF8h",
+				"size"    : 1,
+				"access"  : "write-only"
+			}
+		},
+		{   "service":
+			{   "name"    : "EnterProgramLoader",
+				"brief"   : { "en": "Starts (or restarts) the program loader module.<br>[0]: Trigger value 94 ( = 0x5E, '^')<br>(mandatory service)",
+					          "de": "Startet das Programmladermodul (neu).<br>[0]: Auslösewert 94 ( = 0x5E, '^')<br>(Pflichtdienst)"
+						    },
+				"location": "FFFFFAh",
+				"size"    : 1,
+				"access"  : "write-only"
+			}
+		},
+		{   "service":
+			{   "name"    : "ChangeCy4Address",
+				"brief"   : { "en": "Setting the Cy4NET address:<br>[0]: Net address: 1 .. 255<br>[1]: Device address: 1 .. 254<br>(mandatory service)",
+					          "de": "Setzt die Cy4NET-Adresse.<br>[0]: Netzadresse: 1 .. 255<br>[1]: Geräteadresse: 1 .. 254<br>(Pflichtdienst)"
+						    },
+				"location": "FFFFFCh",
+				"size"    : 2,
+				"access"  : "write-only"
+			}
+		}
+	]
+}

@@ -1,0 +1,8 @@
+#pragma once
+
+// This template is used to generate "Version.h" during build. Please do not delete.
+
+#define VERSION_MAJOR @PROJECT_VERSION_MAJOR@
+#define VERSION_MINOR @PROJECT_VERSION_MINOR@
+#define VERSION_PATCH @PROJECT_VERSION_PATCH@
+#define VERSION_STRING "@PROJECT_VERSION@"
