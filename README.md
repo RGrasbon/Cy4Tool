@@ -1,6 +1,6 @@
 # Cy4Tool
 
-Ein leistungsstarkes PC-Werkzeug für die Administration, Konfiguration und Instandhaltung von **Cy4NET-Komponenten** des freien Peer-To-Peer Kommunikationssystems Cy4NET: https://cy4net.org
+Ein PC-Werkzeug für die Administration, Konfiguration und Instandhaltung von **Cy4NET-Komponenten** des freien Peer-To-Peer Kommunikationssystems Cy4NET: https://cy4net.org
 
 ## Über die Anwendung
 
