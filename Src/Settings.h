@@ -46,7 +46,7 @@ class Settings
         QLocale         locale                              = QLocale(QLocale::English, QLocale::UnitedStates);
         bool            autoSerialPortDetection             = true;
         QString         gatewaySerialPort                   = QString::fromLatin1(serialPortName);
-        Socket          gatewaySocket                       = Socket(QStringLiteral("192.168.168.29"), 16214);
+        Socket          gatewaySocket                       = Socket(QStringLiteral("192.0.2.1"), 4001);
         ConnectionType  currentGatewayConnection            = ConnectionType::Serial;
         QString         onlineResourcesUrl                  = QStringLiteral("http://www.cy4net.org");
         QString         localCy4ToolDataDirectoryPath       = QDir::toNativeSeparators(QDir::homePath() + "/.Cy4NET");

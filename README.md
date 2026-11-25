@@ -34,7 +34,8 @@ Auf der Cy4NET-Projekteseite sind mehrere Gateways zu finden. Darunter auch Ger�
   
   Neben diesen Hauptfunktionen ermöglicht das Cy4Tool weitere Hilfsaufgaben wie beispielsweise das Hochladen von Firmwareupdates oder den Direktzugriff auf Daten der Dienste.
 
-  ![Zusatzaufgaben](Docs/FirmwareCustomAccess.png)
+  ![Firmware Upload](Docs/FirmwareUpload.png)
+  ![Custom Access](Docs/CustomAccess.png)
 
 ## Voraussetzungen
 
@@ -44,7 +45,7 @@ Um Cy4Tool nutzen zu können, muss dein System folgende Anforderungen erfüllen:
 
 ## Installation
 
-Für Windows steht eine ausführbare Installationsdatei zur Verfügung: [Releases](../../releases)
+Für Windows steht eine ausführbare Installationsdatei zur Verfügung: 
 > **Hinweis zur Installation:** Da die Datei nicht digital signiert ist, erscheint unter Windows eventuell eine SmartScreen-Warnung. Klicke dort einfach auf **"Weitere Informationen"** und anschließend auf **"Trotzdem ausführen"**.
 
 
